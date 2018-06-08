@@ -1,0 +1,6 @@
+set -e
+
+cd telegraf
+tar -xvf telegraf-*.tar.gz 
+
+cp telegraf/telegraf ${BOSH_INSTALL_TARGET}

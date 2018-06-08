@@ -1,0 +1,6 @@
+---
+name: telegraf
+
+files:
+- telegraf/**/*
+
