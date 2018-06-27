@@ -1,0 +1,22 @@
+---
+name: telegraf-agent
+
+templates:
+  telegraf_ctl.erb: bin/telegraf_ctl
+  telegraf.conf.erb: config/telegraf.conf.erb
+
+packages:
+- telegraf
+
+consumes:
+- name: proxy_conn
+  type: proxy_conn
+
+properties:
+  mysql_user:
+    description: Mysql user 
+  mysql_password:
+    description: Mysql password 
+  mysql_port:
+    default: 3306
+    description: Mysql password 

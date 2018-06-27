@@ -1,3 +1,4 @@
----
-telegraf/telegraf-1.7.0_rc1_linux_amd64.tar.gz: {}
-
+telegraf/telegraf-1.7.0_linux_amd64.tar.gz:
+  size: 10250624
+  object_id: c33f8689-170e-4799-4e60-b2ccd0dc4df5
+  sha: "47f44d2d84a4fdad480569777a9d4da45589c20a"

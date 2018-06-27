@@ -8,7 +8,7 @@
    ##    servers = ["user@tcp(127.0.0.1:3306)/?tls=false"]
    #
    ## CHANGE THE SERVERS FIELD HERE
-   servers                                   = ["mysql_user:password@tcp(127.0.0.1:3306)/"]
+   servers                                   = ["<%=p("mysql_user")%>:<%=p("mysql_password")%>@tcp(127.0.0.1:<%=p("mysql_port")%>)/"]
    #
    ## the limits for metrics form perf_events_statements
    perf_events_statements_digest_text_limit  = 120
@@ -63,13 +63,13 @@
 # Configuration for Wavefront output 
 [[outputs.wavefront]]
   ## DNS name of the wavefront proxy server
-  host = "wavefront.example.com"
+  host = "<%=link('mysql').instances.first.address%>"
 
   ## Port that the Wavefront proxy server listens on
   port = 2878
 
   ## prefix for metrics keys
-  #prefix = "my.specific.prefix."
+  prefix = "mysql."
 
   ## wether to use "value" for name of simple fields. default is false
   #simple_fields = false
