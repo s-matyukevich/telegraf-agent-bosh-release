@@ -3,7 +3,7 @@ name: telegraf-agent
 
 templates:
   telegraf_ctl.erb: bin/telegraf_ctl
-  telegraf.conf.erb: config/telegraf.conf.erb
+  telegraf.conf.erb: config/telegraf.conf
 
 packages:
 - telegraf

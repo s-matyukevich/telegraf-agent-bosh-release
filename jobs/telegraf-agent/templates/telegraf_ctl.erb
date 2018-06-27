@@ -1,17 +1,17 @@
 #!/bin/bash -e
 
-job_dir=/var/vcap/jobs/mysql-wavefront-connector
-run_dir=/var/vcap/sys/run/mysql-wavefront-connector
-log_dir=/var/vcap/sys/log/mysql-wavefront-connector
+job_dir=/var/vcap/jobs/telegraf-agent
+run_dir=/var/vcap/sys/run/telegraf-agent
+log_dir=/var/vcap/sys/log/telegraf-agent
 package_dir=/var/vcap/packages/telegraf
-pidfile=$run_dir/telegraf.pid
+pidfile=$run_dir/pid
 
-source /var/vcap/packages/common/pid_utils.sh
+source $package_dir/pid_utils.sh
 
 case $1 in
 
   start)
-    log "Starting telegraf..."
+    echo "Starting telegraf..."
     pid_guard $pidfile "telegraf"
 
     mkdir -p $run_dir
@@ -19,20 +19,19 @@ case $1 in
     mkdir -p $log_dir
     chown -R vcap:vcap $log_dir
 
-    cd $package_dir
+    echo "$$" > $pidfile
 
-    su - vcap -p -c -o pipefail "PATH=$PATH $package_dir/telegraf \
+    exec $package_dir/telegraf \
       --config $job_dir/config/telegraf.conf \
       >>$log_dir/telegraf.stdout.log \
-      2>>$log_dir/telegraf.stderr.log &"
+      2>>$log_dir/telegraf.stderr.log
 
-    log "Starting telegraf... done"
     ;;
 
   stop)
-    log "Stopping telegraf..."
+    echo "Stopping telegraf..."
     kill_and_wait $pidfile
-    log "Stopping telegraf... done"
+    echo "Stopping telegraf... done"
     ;;
 
   *)
@@ -40,3 +39,4 @@ case $1 in
     ;;
 
 esac
+
