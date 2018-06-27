@@ -63,7 +63,7 @@
 # Configuration for Wavefront output 
 [[outputs.wavefront]]
   ## DNS name of the wavefront proxy server
-  host = "<%=link('proxy_cons').instances.first.address%>"
+  host = "<%=link('proxy_conn').instances.first.address%>"
 
   ## Port that the Wavefront proxy server listens on
   port = 2878
