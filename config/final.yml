@@ -2,6 +2,7 @@
 blobstore:
   provider: s3
   options:
+    region: us-west-1
     bucket_name: telegraf-agent-bosh-release 
 name: telegraf-agent
 
