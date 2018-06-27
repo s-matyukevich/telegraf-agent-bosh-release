@@ -4,3 +4,4 @@ cd telegraf
 tar -xvf telegraf-*.tar.gz 
 
 cp telegraf/telegraf ${BOSH_INSTALL_TARGET}
+cp pid_utils.sh ${BOSH_INSTALL_TARGET}

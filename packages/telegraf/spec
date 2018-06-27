@@ -3,4 +3,5 @@ name: telegraf
 
 files:
 - telegraf/**/*
+- pid_utils.sh
 
