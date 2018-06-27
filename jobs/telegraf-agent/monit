@@ -1,0 +1,5 @@
+check process telegraf-agent
+  with pidfile /var/vcap/sys/run/telegraf-agent/pid
+  start program "/var/vcap/jobs/telegraf-agent/bin/telegraf_ctl start"
+  stop program "/var/vcap/jobs/telegraf-agent/bin/telegraf_ctl stop"
+  group vcap
