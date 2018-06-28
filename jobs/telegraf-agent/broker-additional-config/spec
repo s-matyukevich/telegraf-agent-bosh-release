@@ -1,0 +1,9 @@
+---
+name: broker-additional-config
+
+templates:
+  pre-start.erb: bin/pre-start
+
+properties:
+  all_hosts:
+    description: all mysql proxy hosts in failover order
