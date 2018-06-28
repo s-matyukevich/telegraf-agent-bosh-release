@@ -1,3 +1,4 @@
 #!/bin/bash
  
-echo '  all_hosts: <%=p("all_hosts")%>' >> settings.yml
+echo '  all_hosts: "<%=p("all_hosts")%>"
+  datacenter: <%=p("datacenter")%>' >> /var/vcap/jobs/cf-mysql-broker/config/settings.yml

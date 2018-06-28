@@ -7,3 +7,5 @@ templates:
 properties:
   all_hosts:
     description: all mysql proxy hosts in failover order
+  datacenter:
+    description: datacenter name
